@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 65343655}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1461641963}
+        m_TargetAssemblyTypeName: ButtonBehaviour, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &65343655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +268,7 @@ GameObject:
   - component: {fileID: 219487014}
   - component: {fileID: 219487013}
   - component: {fileID: 219487012}
+  - component: {fileID: 219487015}
   m_Layer: 5
   m_Name: 15PairsButton
   m_TagString: Untagged
@@ -312,10 +325,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 932e98515054f5647adff33e6e2e1384, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 932e98515054f5647adff33e6e2e1384, type: 3}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 932e98515054f5647adff33e6e2e1384, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 932e98515054f5647adff33e6e2e1384, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -326,7 +339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 219487013}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 219487015}
+        m_TargetAssemblyTypeName: SetGameButton, Assembly-CSharp
+        m_MethodName: SetGameOption
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GameScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &219487013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +390,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219487010}
   m_CullTransparentMesh: 1
+--- !u!114 &219487015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219487010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ead9bfd35536904a94ad7a8a4c18e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  PairNumber: 15
+  PuzzleCategories: 0
 --- !u!1 &348589652
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +417,7 @@ GameObject:
   - component: {fileID: 348589656}
   - component: {fileID: 348589655}
   - component: {fileID: 348589654}
+  - component: {fileID: 348589657}
   m_Layer: 5
   m_Name: FruitsButton
   m_TagString: Untagged
@@ -433,10 +474,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 685c6ffced9140e4fa66e4b147777872, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 685c6ffced9140e4fa66e4b147777872, type: 3}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 685c6ffced9140e4fa66e4b147777872, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 685c6ffced9140e4fa66e4b147777872, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -447,7 +488,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 348589655}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348589657}
+        m_TargetAssemblyTypeName: SetGameButton, Assembly-CSharp
+        m_MethodName: SetGameOption
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GameScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &348589655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +539,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348589652}
   m_CullTransparentMesh: 1
+--- !u!114 &348589657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348589652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ead9bfd35536904a94ad7a8a4c18e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 2
+  PairNumber: 0
+  PuzzleCategories: 1
 --- !u!1 &462145745
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +726,7 @@ GameObject:
   - component: {fileID: 643714945}
   - component: {fileID: 643714944}
   - component: {fileID: 643714943}
+  - component: {fileID: 643714946}
   m_Layer: 5
   m_Name: 20PairsButton
   m_TagString: Untagged
@@ -714,10 +783,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: baaf96500bedfa34e978472ca8462650, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: baaf96500bedfa34e978472ca8462650, type: 3}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: baaf96500bedfa34e978472ca8462650, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: baaf96500bedfa34e978472ca8462650, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -728,7 +797,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 643714944}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 643714946}
+        m_TargetAssemblyTypeName: SetGameButton, Assembly-CSharp
+        m_MethodName: SetGameOption
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GameScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &643714944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,6 +848,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643714941}
   m_CullTransparentMesh: 1
+--- !u!114 &643714946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643714941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ead9bfd35536904a94ad7a8a4c18e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  PairNumber: 20
+  PuzzleCategories: 0
 --- !u!1 &879387941
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +875,7 @@ GameObject:
   - component: {fileID: 879387945}
   - component: {fileID: 879387944}
   - component: {fileID: 879387943}
+  - component: {fileID: 879387946}
   m_Layer: 5
   m_Name: VegsButton
   m_TagString: Untagged
@@ -835,10 +932,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 58f63b906f396cd4b8b838efa93e8b53, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 58f63b906f396cd4b8b838efa93e8b53, type: 3}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 58f63b906f396cd4b8b838efa93e8b53, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 58f63b906f396cd4b8b838efa93e8b53, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -849,7 +946,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 879387944}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 879387946}
+        m_TargetAssemblyTypeName: SetGameButton, Assembly-CSharp
+        m_MethodName: SetGameOption
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GameScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &879387944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,6 +997,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879387941}
   m_CullTransparentMesh: 1
+--- !u!114 &879387946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879387941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ead9bfd35536904a94ad7a8a4c18e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 2
+  PairNumber: 0
+  PuzzleCategories: 2
+--- !u!1 &943780855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943780857}
+  - component: {fileID: 943780856}
+  m_Layer: 0
+  m_Name: GameSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &943780856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943780855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da79f8bd25db10a4fa7c173825791219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &943780857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943780855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3617415, y: -0.015059441, z: -310.70132}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &967534192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1261,7 @@ GameObject:
   - component: {fileID: 1789990124}
   - component: {fileID: 1789990123}
   - component: {fileID: 1789990122}
+  - component: {fileID: 1789990125}
   m_Layer: 5
   m_Name: 10PairsButton
   m_TagString: Untagged
@@ -1149,10 +1318,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 2f5ad06c3ba32a648bfb9da3b7bae48d, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 2f5ad06c3ba32a648bfb9da3b7bae48d, type: 3}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 2f5ad06c3ba32a648bfb9da3b7bae48d, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 2f5ad06c3ba32a648bfb9da3b7bae48d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1163,7 +1332,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1789990123}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1789990125}
+        m_TargetAssemblyTypeName: SetGameButton, Assembly-CSharp
+        m_MethodName: SetGameOption
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GameScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1789990123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,6 +1383,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789990120}
   m_CullTransparentMesh: 1
+--- !u!114 &1789990125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789990120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ead9bfd35536904a94ad7a8a4c18e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonType: 1
+  PairNumber: 10
+  PuzzleCategories: 0
 --- !u!1 &2074681433
 GameObject:
   m_ObjectHideFlags: 0
