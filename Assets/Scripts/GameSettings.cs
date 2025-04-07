@@ -53,7 +53,7 @@ public class GameSettings : MonoBehaviour
     private void SetPuzzleGameDirectory()
     {
         _puzzleGameDirectory.Add(EPuzzleCategories.PuzzleOneFruits, "Fruits");
-        _puzzleGameDirectory.Add(EPuzzleCategories.PuzzleTwoVegs, "Vegs");
+        _puzzleGameDirectory.Add(EPuzzleCategories.PuzzleTwoVegs, "Vegetables");
     }
 
     public void SetPairNumber(EPairNumber Number)
