@@ -110,19 +110,20 @@ public class PictureManager : MonoBehaviour
                 }
             }
         }
-        if(_revealedPicNumber == 2)
+        if (_revealedPicNumber == 2)
         {
-            if(PictureList[_firstRevealedPic].GetIndex() == PictureList[_secondRevealedPic].GetIndex() && _firstRevealedPic != _secondRevealedPic)
+            if (PictureList[_firstRevealedPic].GetIndex() == PictureList[_secondRevealedPic].GetIndex() && _firstRevealedPic != _secondRevealedPic)
             {
+                PictureList[_firstRevealedPic].PlayMatchSound(); //  Play match sound
                 CurrentGameState = GameState.DeletePuzzles;
                 _picToDestroy1 = _firstRevealedPic;
                 _picToDestroy2 = _secondRevealedPic;
             }
             else
             {
+                PictureList[_firstRevealedPic].PlayMismatchSound(); //  Play mismatch sound
                 CurrentGameState = GameState.FlipBack;
             }
-            
         }
         CurrentPuzzleState = PictureManager.PuzzleState.CanRotate;
 

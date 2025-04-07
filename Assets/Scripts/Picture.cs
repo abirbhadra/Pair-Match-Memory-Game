@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Picture : MonoBehaviour
 {
+    public AudioClip PressSound;
+    public AudioClip MatchSound;
+    public AudioClip MismatchSound;
+
     private Material _firstMaterial;
     private Material _secondMaterial;
 
@@ -16,7 +20,8 @@ public class Picture : MonoBehaviour
 
     private bool _clicked = false;
     private int _index;
-
+   
+    private AudioSource _audio;
     public void SetIndex(int id)
     {
         _index = id;
@@ -31,6 +36,8 @@ public class Picture : MonoBehaviour
         _clicked = false;
         _pictureManager = GameObject.Find("PictureManager").GetComponent<PictureManager>();
         _currentRotation = gameObject.transform.rotation;
+        _audio = GetComponent<AudioSource>();
+        _audio.clip = PressSound;
     }
 
     private void OnMouseDown()
@@ -38,8 +45,15 @@ public class Picture : MonoBehaviour
         if (_clicked == false)
         {
             _pictureManager.CurrentPuzzleState = PictureManager.PuzzleState.PuzzleRotating;
+
+            if (GameSettings.Instance.IsSoundEffectMutedPermanently() == false)
+            {
+                _audio.Play();
+            }
+
             StartCoroutine(routine: LoopRotation(angle: 45, FirstMat: false));
             _clicked = true;
+
         }
     }
 
@@ -49,6 +63,10 @@ public class Picture : MonoBehaviour
         {
             _pictureManager.CurrentPuzzleState = PictureManager.PuzzleState.PuzzleRotating;
             Revealed = false;
+            if (GameSettings.Instance.IsSoundEffectMutedPermanently() == false)
+            {
+                _audio.Play();
+            }
             StartCoroutine(routine: LoopRotation(angle: 45, FirstMat: true));
         }
     }
@@ -132,4 +150,20 @@ public class Picture : MonoBehaviour
         yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
     }
+    public void PlayMatchSound()
+    {
+        if (GameSettings.Instance.IsSoundEffectMutedPermanently() == false && MatchSound != null)
+        {
+            _audio.PlayOneShot(MatchSound);
+        }
+    }
+
+    public void PlayMismatchSound()
+    {
+        if (GameSettings.Instance.IsSoundEffectMutedPermanently() == false && MismatchSound != null)
+        {
+            _audio.PlayOneShot(MismatchSound);
+        }
+    }
+
 }
