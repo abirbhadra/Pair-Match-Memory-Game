@@ -15,6 +15,16 @@ public class Picture : MonoBehaviour
     private PictureManager _pictureManager;
 
     private bool _clicked = false;
+    private int _index;
+
+    public void SetIndex(int id)
+    {
+        _index = id;
+    }
+    public int GetIndex()
+    {
+        return _index;
+    }
     void Start()
     {
         Revealed = false;
@@ -109,5 +119,17 @@ public class Picture : MonoBehaviour
     public void ApplySecondMaterial()
     {
         gameObject.GetComponent <Renderer>().material = _secondMaterial;
+    }
+
+    public void Deactivate()
+    {
+        StartCoroutine(routine:DeactivateCorutine());
+    }
+    private IEnumerator DeactivateCorutine()
+    {
+        Revealed = false;
+
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
     }
 }

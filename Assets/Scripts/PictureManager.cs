@@ -53,6 +53,10 @@ public class PictureManager : MonoBehaviour
     private int _firstRevealedPic;
     private int _secondRevealedPic;
     private int _revealedPicNumber = 0;
+    private int _picToDestroy1;
+    private int _picToDestroy2;
+
+    private bool _corutineStarted = false;
 
     void Start()
     {
@@ -108,7 +112,17 @@ public class PictureManager : MonoBehaviour
         }
         if(_revealedPicNumber == 2)
         {
-            CurrentGameState = GameState.FlipBack;
+            if(PictureList[_firstRevealedPic].GetIndex() == PictureList[_secondRevealedPic].GetIndex() && _firstRevealedPic != _secondRevealedPic)
+            {
+                CurrentGameState = GameState.DeletePuzzles;
+                _picToDestroy1 = _firstRevealedPic;
+                _picToDestroy2 = _secondRevealedPic;
+            }
+            else
+            {
+                CurrentGameState = GameState.FlipBack;
+            }
+            
         }
         CurrentPuzzleState = PictureManager.PuzzleState.CanRotate;
 
@@ -117,8 +131,22 @@ public class PictureManager : MonoBehaviour
             CurrentGameState = GameState.NoAction;
         }
     }
-    private void FlipBack()
+    private void DestroyPicture()
     {
+        PuzzledRevealedNumber = RevealedState.NoRevealed;
+        
+        PictureList[_picToDestroy1].Deactivate();
+        PictureList[_picToDestroy2].Deactivate();
+        _revealedPicNumber = 0;
+        CurrentGameState = GameState.NoAction;
+        CurrentPuzzleState = PuzzleState.CanRotate;
+    }
+    private IEnumerator FlipBack()
+    {
+        _corutineStarted = true;
+
+        yield return new WaitForSeconds(0.5f);
+
         PictureList[_firstRevealedPic].Flipback();
         PictureList[_secondRevealedPic].Flipback();
 
@@ -127,6 +155,8 @@ public class PictureManager : MonoBehaviour
 
         PuzzledRevealedNumber = RevealedState.NoRevealed;
         CurrentGameState = GameState.NoAction;
+
+        _corutineStarted = false;
     }
    private void LoadMaterials()
    {
@@ -151,11 +181,19 @@ public class PictureManager : MonoBehaviour
 
     void Update()
     {
-        if(CurrentGameState == GameState.FlipBack)
+        if(CurrentGameState == GameState.DeletePuzzles)
         {
             if(CurrentPuzzleState == PuzzleState.CanRotate)
             {
-                FlipBack();
+                DestroyPicture();
+            }
+        }
+
+        if(CurrentGameState == GameState.FlipBack)
+        {
+            if (CurrentPuzzleState == PuzzleState.CanRotate && _corutineStarted == false)
+            {
+                StartCoroutine(FlipBack());
             }
         }
     }
@@ -180,38 +218,7 @@ public class PictureManager : MonoBehaviour
         }
         ApplyTextures();
     }
-    /*public void ApplyTextures()
-    {
-        int pairCount = _materialList.Count;
-        List<int> faceIndexes = new List<int>();
-
-        // Add each face index twice (since we want pairs)
-        for (int i = 0; i < pairCount; i++)
-        {
-            faceIndexes.Add(i);
-            faceIndexes.Add(i);
-        }
-
-        // Shuffle the list
-        for (int i = 0; i < faceIndexes.Count; i++)
-        {
-            int randomIndex = Random.Range(i, faceIndexes.Count);
-            int temp = faceIndexes[i];
-            faceIndexes[i] = faceIndexes[randomIndex];
-            faceIndexes[randomIndex] = temp;
-        }
-
-        // Assign shuffled faces to pictures
-        for (int i = 0; i < PictureList.Count; i++)
-        {
-            int index = faceIndexes[i];
-            var pic = PictureList[i];
-
-            pic.SetFirstMaterial(_firstMaterial, _firstTexturePath);
-            pic.ApplyFirstMaterial();
-            pic.SetSecondMaterial(_materialList[index], _texturePathList[index]);
-        }
-    }*/
+    
 
     public void ApplyTextures()
      {
@@ -249,8 +256,9 @@ public class PictureManager : MonoBehaviour
              o.SetFirstMaterial(_firstMaterial, _firstTexturePath);
              o.ApplyFirstMaterial();
              o.SetSecondMaterial(_materialList[rndMatIndex], _texturePathList[rndMatIndex]);
-
-             //            o.ApplySecondMaterial(); //test
+            o.SetIndex(rndMatIndex);
+            o.Revealed = false;
+            
 
              AppliedTimes[rndMatIndex] += 1;
              forceMat = false;
