@@ -10,6 +10,9 @@ A simple memory-based card matching game built in Unity. Flip the cards, match t
 - audio can be muted or unmuted
 - Clean, responsive UI
 
+## Playable link 
+- https://abirbhadra.itch.io/pair-matching-card-game
+ 
 ## Getting Started
 
 1. Open the project in Unity (version 2021.3.31f1 or higher recommended).
