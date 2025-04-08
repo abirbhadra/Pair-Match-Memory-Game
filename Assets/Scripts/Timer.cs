@@ -42,4 +42,12 @@ public class Timer : MonoBehaviour
 
         GUI.matrix = _oldMatrix;
     }
+    public float GetCurrentTIme()
+    {
+        return _timer;
+    }
+    public void StopTimer()
+    {
+        _stopTimer = true;
+    }
 }
